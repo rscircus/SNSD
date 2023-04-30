@@ -1,0 +1,21 @@
+[tool.poetry]
+name = "ms-snsd-master"
+version = "0.1.0"
+description = ""
+authors = ["Roland Siegbert <roland.siegbert@gmail.com>"]
+readme = "README.md"
+packages = [{include = "ms_snsd_master"}]
+
+[tool.poetry.dependencies]
+#python = "^3.10"
+python = ">=3.8,<3.11"
+numpy = "^1.24.3"
+glob2 = "^0.7"
+soundfile = "^0.12.1"
+scipy = "^1.10.1"
+configparser = "^5.3.0"
+black = "^23.3.0"
+
+[build-system]
+requires = ["poetry-core"]
+build-backend = "poetry.core.masonry.api"
