@@ -34,7 +34,7 @@ from pprint import pprint
 # - noisefilenames: list of noisy speech filenames
 
 
-# TODO: Cyclomatic complexity is 18
+# TODO: Cyclomatic complexity is 18 - that's pretty high
 def main(cfg):
     
     pprint(cfg)
