@@ -20,6 +20,12 @@ Check usage below how to get started.
 1. Make sure that the config file is in the same directory as (noisyspeech_synthesizer.py) for ease of use.
 1. Now run (python noisyspeech_synthesizer.py) to generate noisy speech clips.
 
+```bash
+poetry shell
+poetry install
+python ./noisyspeech_synthesizer.py
+```
+
 
 ## Description
 
