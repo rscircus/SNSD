@@ -75,6 +75,7 @@ def main(cfg):
     audio_length = int(audio_length * fs)
     SNR = np.linspace(snr_lower, snr_upper, total_snrlevels)
     cleanfilenames = glob.glob(os.path.join(clean_dir, audioformat))
+
     if cfg["noise_types_excluded"] == "None":
         noisefilenames = glob.glob(os.path.join(noise_dir, audioformat))
     else:
@@ -89,7 +90,7 @@ def main(cfg):
 
     filecounter = 0
     num_samples = 0
-
+    
     while num_samples < total_samples:
         idx_s = np.random.randint(0, np.size(cleanfilenames))
         clean, fs = audioread(cleanfilenames[idx_s])
@@ -103,15 +104,14 @@ def main(cfg):
                 if idx_s >= np.size(cleanfilenames) - 1:
                     idx_s = np.random.randint(0, np.size(cleanfilenames))
                 newclean, fs = audioread(cleanfilenames[idx_s])
-                cleanconcat = np.append(
-                    clean, np.zeros(int(fs * silence_length)))
+                cleanconcat = np.append(clean, np.zeros(int(fs * silence_length)))
                 clean = np.append(cleanconcat, newclean)
 
         idx_n = np.random.randint(0, np.size(noisefilenames))
         noise, fs = audioread(noisefilenames[idx_n])
 
         if len(noise) >= len(clean):
-            noise = noise[0: len(clean)]
+            noise = noise[0 : len(clean)]
 
         else:
             while len(noise) <= len(clean):
@@ -119,11 +119,12 @@ def main(cfg):
                 if idx_n >= np.size(noisefilenames) - 1:
                     idx_n = np.random.randint(0, np.size(noisefilenames))
                 newnoise, fs = audioread(noisefilenames[idx_n])
-                noiseconcat = np.append(
-                    noise, np.zeros(int(fs * silence_length)))
+                noiseconcat = np.append(noise, np.zeros(int(fs * silence_length)))
                 noise = np.append(noiseconcat, newnoise)
-        noise = noise[0: len(clean)]
+        noise = noise[0 : len(clean)]
         filecounter = filecounter + 1
+        
+        print(f"filecounter: {filecounter}")
 
         for i in range(np.size(SNR)):
             clean_snr, noise_snr, noisy_snr = snr_mixer(
