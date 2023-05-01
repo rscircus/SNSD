@@ -6,6 +6,21 @@ Clean up MS-SNSD and make it fit for this project: https://github.com/rscircus/s
 
 Check usage below how to get started.
 
+
+## Usage
+
+1. Clone the repo to your local directory
+1. Download clean speech and noise datasets
+1. Use `pyenv` and `poetry` to install dependencies
+1. Specify your requirements in the config file (noisyspeech_synthesizer.cfg)
+  - Specify sampling rate, audio format, audio length, silence length, total number of hours of noisy speech required and Speech to Noise Ratio (SNR) levels required.
+    - Specify noise files to be excluded. Example: noise_types_excluded: Babble, Traffic. 'None' of no files to be excluded.
+    - Specify the path to noise and speech directories if it is not in the same directory as scripts.
+1. Noisy speech and the corresponding clean speech and noise files will be in the directories 'NoisySpeech_training', 'CleanSpeech_training' and 'Noise_training' respectively.
+1. Make sure that the config file is in the same directory as (noisyspeech_synthesizer.py) for ease of use.
+1. Now run (python noisyspeech_synthesizer.py) to generate noisy speech clips.
+
+
 ## Description
 
 * This dataset contains a large collection of clean speech files and variety of environmental noise files in .wav format sampled at 16 kHz.
@@ -59,18 +74,6 @@ year={2019}
 4. Clean Speech corresponding to noisy speech test data is present in the directory 'clean_test'
 Download the data onto your local machine.
 
-## Usage
-
-1. Clone the repo to your local directory
-1. Download clean speech and noise datasets
-1. Use `pyenv` and `poetry` to install dependencies
-1. Specify your requirements in the config file (noisyspeech_synthesizer.cfg)
-  - Specify sampling rate, audio format, audio length, silence length, total number of hours of noisy speech required and Speech to Noise Ratio (SNR) levels required.
-    - Specify noise files to be excluded. Example: noise_types_excluded: Babble, Traffic. 'None' of no files to be excluded.
-    - Specify the path to noise and speech directories if it is not in the same directory as scripts.
-1. Noisy speech and the corresponding clean speech and noise files will be in the directories 'NoisySpeech_training', 'CleanSpeech_training' and 'Noise_training' respectively.
-1. Make sure that the config file is in the same directory as (noisyspeech_synthesizer.py) for ease of use.
-1. Now run (python noisyspeech_synthesizer.py) to generate noisy speech clips.
 
 ## Dataset licenses
 
