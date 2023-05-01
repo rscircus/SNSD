@@ -8,6 +8,7 @@ import os
 import argparse
 import configparser as CP
 from audiolib import audioread, audiowrite, snr_mixer
+from pprint import pprint
 
 # The following function is used to generate clean speech and noise
 # from noisy speech.
@@ -35,6 +36,9 @@ from audiolib import audioread, audiowrite, snr_mixer
 
 # TODO: Cyclomatic complexity is 18
 def main(cfg):
+    
+    pprint(cfg)
+
     snr_lower = float(cfg["snr_lower"])
     snr_upper = float(cfg["snr_upper"])
     total_snrlevels = float(cfg["total_snrlevels"])
