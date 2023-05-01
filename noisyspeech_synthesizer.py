@@ -60,12 +60,10 @@ def main(cfg):
     total_hours = float(cfg["total_hours"])
     audio_length = float(cfg["audio_length"])
     silence_length = float(cfg["silence_length"])
-    noisyspeech_dir = os.path.join(
-        os.path.dirname(__file__), "NoisySpeech_training")
+    noisyspeech_dir = os.path.join(os.path.dirname(__file__), "NoisySpeech_training")
     if not os.path.exists(noisyspeech_dir):
         os.makedirs(noisyspeech_dir)
-    clean_proc_dir = os.path.join(
-        os.path.dirname(__file__), "CleanSpeech_training")
+    clean_proc_dir = os.path.join(os.path.dirname(__file__), "CleanSpeech_training")
     if not os.path.exists(clean_proc_dir):
         os.makedirs(clean_proc_dir)
     noise_proc_dir = os.path.join(os.path.dirname(__file__), "Noise_training")
